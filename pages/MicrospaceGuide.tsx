@@ -121,7 +121,7 @@ console.log(microspace);
                     - Tópico não ordenado<br/>
                     1. Passo sequencial<br/>
                     <br/>
-                    > Citação importante
+                    Citação importante
                   </code>
                 </div>
                 <div className="bg-slate-50 dark:bg-black/20 p-4 rounded-xl border border-slate-200 dark:border-white/5 text-slate-600 dark:text-gray-300">

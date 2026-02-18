@@ -2,17 +2,21 @@ import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import GlassCard from '../components/UI/GlassCard';
 import { getYearData } from '../constants';
-import { CourseType, SectionType } from '../types';
+import { SectionType } from '../types';
 
 const YearSelection: React.FC = () => {
-  const { courseId, categoryId } = useParams<{ courseId: string; categoryId: string }>();
+  // CORREÇÃO: O App.tsx define a rota como /:courseId/:type
+  // Antes estava categoryId, o que causava undefined.
+  const { courseId, type } = useParams<{ courseId: string; type: string }>();
 
-  if (!courseId || !categoryId) {
+  if (!courseId || !type) {
     return <Navigate to="/" />;
   }
 
-  const years = getYearData(courseId, categoryId);
-  const categoryName = categoryId === SectionType.CONTENT ? 'Conteúdos' : 'Testes';
+  // type' para a função auxiliar
+  const years = getYearData(courseId, type);
+  
+  const categoryName = type === SectionType.CONTENT ? 'Conteúdos' : 'Testes';
 
   return (
     <div className="animate-fade-in-up">
